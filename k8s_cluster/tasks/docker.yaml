@@ -1,0 +1,19 @@
+---
+- name: "Ensure that Docker dependecies are statisfied"
+  yum:
+    name: {{ packages }}
+    state: present
+  vars:
+    packages:
+    - yum-utils
+    - device-mapper-presistent-data
+    - lvm2
+
+- name: "Add Docker yum repository"
+  yum_repository:
+    file: https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: "Install Docker-CE"
+  yum:
+    name: docker-ce
+    state: present

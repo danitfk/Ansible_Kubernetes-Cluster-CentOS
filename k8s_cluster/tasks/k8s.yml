@@ -1,0 +1,21 @@
+---
+- name: "Copy Kubernetes repo into yum"
+  copy:
+    src: kubernetes.repo
+    dest: /etc/yum.repos.d/kubernetes.repo
+    remote_src: true
+
+- name: "Install Kubernetes"
+  yum:
+    name: {{ packages }}
+    state: present
+  vars:
+    packages:
+    - kubelet
+    - kubeadm
+    - kubectl
+
+- name: "Enable Kubelet service"
+  service:
+    name: kubelet
+    enabled: yes

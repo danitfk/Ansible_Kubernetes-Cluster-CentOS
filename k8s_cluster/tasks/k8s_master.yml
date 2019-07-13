@@ -1,0 +1,6 @@
+---
+- name: "Initilize cluster on Master node"
+  command: "kubeadm init --pod-network-cidr={{ k8s_network_cidr }}"
+
+- name: "Deploy Flannel"
+  command: "kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml"

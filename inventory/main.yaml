@@ -1,5 +1,5 @@
 [k8s_cluster]
-k8smaster	ansible_ssh_host="100.26.98.7" ansible_user="cloud_user"
-k8snode1	ansible_ssh_host="54.210.145.186" ansible_user="cloud_user"
-k8snode2	ansible_ssh_host="3.84.30.228" ansible_user="cloud_user"
+k8smaster	ansible_ssh_host="100.26.98.7" ansible_user="cloud_user" role="master"
+k8snode1	ansible_ssh_host="54.210.145.186" ansible_user="cloud_user" role="worker"
+k8snode2	ansible_ssh_host="3.84.30.228" ansible_user="cloud_user" role="worker"
 

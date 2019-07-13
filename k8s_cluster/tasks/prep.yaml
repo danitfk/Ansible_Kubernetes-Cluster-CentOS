@@ -1,0 +1,17 @@
+---
+- name: "Disable SELinux"
+  selinux:
+    state: disabled
+
+- name: "Load br_netfilter kernel module"
+  modprobe:
+    name : br_netfilter
+    state: present
+
+- name: "Enable br_netfilter"
+  sysctl:
+    name: net.bridge.bridge-nf-call-iptables
+    value: 1
+    reload: yes
+    state: present
+
